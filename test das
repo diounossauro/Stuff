@@ -1,0 +1,29 @@
+from selenium import webdriver
+from selenium.webdriver.chrome.service import Service
+from webdriver_manager.chrome import ChromeDriverManager
+import time
+import pandas as pd
+
+driver = webdriver.Chrome(service = Service(ChromeDriverManager().install()))
+
+url = "https://www8.receita.fazenda.gov.br/SimplesNacional/Aplicacoes/ATSPO/pgmei.app/Identificacao"
+
+driver.get(url)
+
+time.sleep(5)
+
+CNPJ = '51116980000123, 34933996000100, 42178568000147, 32546073000170, 27557481000197, 30889768000129, 42785164000111, 47754714000159, 49815535000100, 49815744000153'
+
+for x in CNPJ
+
+acesso = driver.find_element(/html/body/div[1]/section/div/div/div/div/div/div[2]/form/div/div[1]/div/input)
+
+gerar_guia = driver.find_element(/html/body/div/section[1]/nav/div/div[2]/ul[1]/li[2]/a)
+
+selecionar_ano = driver.find_element(/html/body/div/section[3]/div/div/div/div/div/form/div/div/button
+
+ano = driver.find_element(/html/body/div/section[3]/div/div/div/div/div/form/div/div/div/ul/li[7]/a/span[1]
+
+mes-outubro = driver.find_element(/html/body/div/section[3]/div/div/div[2]/div/form/div/div/div/div[2]/div/table/tbody[11]/tr/td[1]/input
+
+das = driver.find_element(/html/body/div/section[3]/div/div/div[2]/div/form/div/div/div/div[3]/div[2]/div/button[2]/span[1]
