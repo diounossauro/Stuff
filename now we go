@@ -2,10 +2,12 @@ pip install selenium
 
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
+from selenium import webdriver
+from selenium.webdriver.chrome.service import Service
+from webdriver_manager.chrome import ChromeDriverManager
 import time
 
-# Caminho para o WebDriver do Chrome (substitua pelo caminho correto)
-chrome_driver_path = 'caminho_para_o_chromedriver.exe'
+driver = webdriver.Chrome(service = Service(ChromeDriverManager().install()))
 
 # Lista de CNPJs MEI
 cnpjs_mei = ['51116980000123, 34933996000100, 42178568000147, 32546073000170, 27557481000197, 30889768000129, 42785164000111, 47754714000159, 49815535000100, 49815744000153']
