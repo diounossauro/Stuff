@@ -10,7 +10,7 @@ import time
 driver = webdriver.Chrome(service = Service(ChromeDriverManager().install()))
 
 # Lista de CNPJs MEI
-cnpjs_mei = ['51116980000123, 34933996000100, 42178568000147, 32546073000170, 27557481000197, 30889768000129, 42785164000111, 47754714000159, 49815535000100, 49815744000153']
+cnpjs_mei = ['51116980000123', '34933996000100', '42178568000147', '32546073000170', '27557481000197', '30889768000129', '42785164000111', '47754714000159', '49815535000100', '49815744000153']
 
 # Configurar o navegador
 driver = webdriver.Chrome(executable_path=chrome_driver_path)
@@ -24,56 +24,57 @@ for cnpj in cnpjs_mei:
     driver.get(url)
 
     # Localiza o campo de entrada do CNPJ por XPath e preenche com o CNPJ atual
-    cnpj_input = driver.find_element_by_xpath('//*[@id="cnpj"]')
+    cnpj_input = driver.find_element("xpath", '''/html/body/div[1]/section/div/div/div/div/div/div[2]/form/div/div[1]/div/input''')
     cnpj_input.clear()
     cnpj_input.send_keys(cnpj)
 
+    
     # Clique no botão "Continuar" usando o XPath completo
-    continuar_button = driver.find_element_by_xpath('/html/body/div[1]/section/div/div/div/div/div/div[2]/form/div/div[2]/div/button/span[1]')
+    continuar_button = driver.find_element("xpath", '''/html/body/div[1]/section/div/div/div/div/div/div[2]/form/div/div[2]/div/button/span[1]''')
     continuar_button.click()
 
     # Aguarde alguns segundos para que a página carregue
     time.sleep(5)
 
     # Clique no link "Emitir DAS" usando o XPath completo
-    emitir_das = driver.find_element_by_xpath('/html/body/div/section[1]/nav/div/div[2]/ul[1]/li[2]/a')
+    emitir_das = driver.find_element("xpath", '''/html/body/div/section[1]/nav/div/div[2]/ul[1]/li[2]/a''')
     emitir_das.click()
 
     # Aguarde alguns segundos para a página "Emitir DAS" carregar
     time.sleep(5)
 
     # Clique no botão "Selecionar Ano" usando o XPath fornecido
-    selecionar_ano = driver.find_element_by_xpath('/html/body/div/section[3]/div/div/div/div/div/form/div/div/div/ul/li[7]')
+    selecionar_ano = driver.find_element("xpath", '''/html/body/div/section[3]/div/div/div/div/div/form/div/div/div/ul/li[7]''')
     selecionar_ano.click()
 
     # Aguarde alguns segundos para a lista de anos aparecer
 
     # Clique no ano "2023" usando o XPath fornecido
-    ano_2023 = driver.find_element_by_xpath('/html/body/div/section[3]/div/div/div/div/div/form/div/div/div/ul/li[7]/a[contains(text(), "2023")]')
+    ano_2023 = driver.find_element("xpath", '''/html/body/div/section[3]/div/div/div/div/div/form/div/div/div/ul/li[7]/a[contains(text(), "2023")]''')
     ano_2023.click()
 
     # Aguarde alguns segundos para a página carregar
 
     # Clique em 'OK' usando o XPath fornecido
-    botao_ok = driver.find_element_by_xpath('/html/body/div/section[3]/div/div/div/div/div/form/button')
+    botao_ok = driver.find_element("xpath", '''/html/body/div/section[3]/div/div/div/div/div/form/button''')
     botao_ok.click()
 
     # Aguarde alguns segundos para a página carregar
 
     # Selecione o campo do "mês" usando o XPath fornecido
-    campo_mes = driver.find_element_by_xpath('/html/body/div/section[3]/div/div/div[2]/div/form/div/div/div/div[2]/div/table/tbody[11]/tr/td[1]/input')
+    campo_mes = driver.find_element("xpath", '''/html/body/div/section[3]/div/div/div[2]/div/form/div/div/div/div[2]/div/table/tbody[11]/tr/td[1]/input''')
     campo_mes.click()
 
     # Aguarde alguns segundos para a página carregar
 
     # Clique no botão "Apurar DAS" com o nome "apurar_das" usando o XPath fornecido
-    botao_apurar_das = driver.find_element_by_xpath('/html/body/div/section[3]/div/div/div[2]/div/form/div/div/div/div[3]/div[2]/div/button[2][@name="apurar_das"]')
+    botao_apurar_das = driver.find_element("xpath", '''/html/body/div/section[3]/div/div/div[2]/div/form/div/div/div/div[3]/div[2]/div/button[2][@name="apurar_das"]''')
     botao_apurar_das.click()
 
     # Aguarde alguns segundos para a página carregar
 
     # Clique no botão "Download DAS" usando o XPath fornecido
-    botao_download_das = driver.find_element_by_xpath('/html/body/div[1]/section[3]/div/div/div[1]/div/div/div[3]/div/div/a[1]')
+    botao_download_das = driver.find_element("xpath", '''/html/body/div[1]/section[3]/div/div/div[1]/div/div/div[3]/div/div/a[1]''')
     botao_download_das.click()
 
     # Neste ponto, você pode adicionar mais código para interagir com a página e continuar com a automação.
